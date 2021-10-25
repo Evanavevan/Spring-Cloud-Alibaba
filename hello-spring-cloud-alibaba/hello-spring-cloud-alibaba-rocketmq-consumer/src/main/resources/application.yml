@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: rocketmq-consumer
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          # RocketMQ 服务器地址
+          namesrv-addr: 127.0.0.1:9876
+        bindings:
+          input: {consumer.orderly: true}
+      bindings:
+        # 这里是个 Map 类型参数，{} 为 YAML 中 Map 的行内写法
+        input: {destination: test-topic, content-type: text/plain, group: test-group, consumer.maxAttempts: 1}
+
+server:
+  port: 9094
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
