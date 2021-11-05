@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 
 @Table(name = "tb_user")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TbUser {
+public class TbUser extends AbstractBaseDomain {
 
     /**
      * 用户名
